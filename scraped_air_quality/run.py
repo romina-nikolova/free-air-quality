@@ -1,16 +1,14 @@
 import os
 import process_scraped_data
-from time import sleep
 import datetime
-import configparser
 import load_scraped_data
 
+
+connstr = os.environ('connstr')
+scraped_table = os.environ('scraped_table')
+repo = os.environ('repo')
 today = datetime.datetime.utcnow().date()
 yesterday = datetime.datetime.strftime(today - datetime.timedelta(days=1), format='%Y-%m-%d')
-
-
-config = configparser.ConfigParser()
-config.read(os.path.join(os.getenv('HOME'), 'config.ini'))
 
 if __name__ == "__main__":
     print('Starting scraping...')
@@ -21,4 +19,4 @@ if __name__ == "__main__":
     yesterday_df = df[df['measure_date'] == yesterday]
     print('Processing completed')
     print('Starting load to bitdotio')
-    load_scraped_data.load_pandas_to_bitdotio(df)
+    load_scraped_data.load_pandas_to_bitdotio(df, connstr, scraped_table, repo)
