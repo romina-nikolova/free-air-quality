@@ -3,7 +3,7 @@ import datetime
 from roman import fromRoman
 
 
-def convert_to_date(day: str, sep='.') -> datetime.datetime:
+def convert_to_date(day: str, sep='.') -> datetime.date:
     """ Converts a string from format with roman month to datetime. Sample input: 21.XI.21 """
     split_date = day.split(sep)
     split_date[1] = str(fromRoman(split_date[1]))
