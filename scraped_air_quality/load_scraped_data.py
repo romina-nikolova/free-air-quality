@@ -4,6 +4,7 @@ import datetime
 
 
 def check_last_update(connstr, scraped_table, repo):
+    """Returns the last measure_date available in the table."""
     engine = create_engine(connstr)
     with engine.connect() as conn:
         rs = conn.execute(f"""SELECT MAX(measure_date) as last_update
@@ -12,6 +13,7 @@ def check_last_update(connstr, scraped_table, repo):
 
 
 def filter_pandas_to_insert(df: pd.DataFrame, last_updated: datetime.date = datetime.date(1900, 1, 1)):
+    """Returns filtered pandas df with rows for dates after the provided last_updated date."""
     try:
         df = df[df['measure_date'] > pd.to_datetime(last_updated)]
     except TypeError:
@@ -20,6 +22,10 @@ def filter_pandas_to_insert(df: pd.DataFrame, last_updated: datetime.date = date
 
 
 def load_pandas_to_bitdotio_flawed(df: pd.DataFrame, connstr: str, scraped_table: str, repo: str):
+    """Error: table already exists. Possible explanation:
+        This function does not work as it looks into the default schema.
+        if_exists=replace does not work either"""
+
     last_updated = check_last_update(connstr, scraped_table, repo)
     df = filter_pandas_to_insert(df, last_updated)
     engine = create_engine(connstr, isolation_level="AUTOCOMMIT")
@@ -28,10 +34,12 @@ def load_pandas_to_bitdotio_flawed(df: pd.DataFrame, connstr: str, scraped_table
               con=engine,
               schema=f"{repo}",
               index=False,
-              if_exists='replace')
+              if_exists='append')
 
 
 def load_pandas_to_bitdotio(df: pd.DataFrame, connstr: str, scraped_table: str, repo: str):
+    """Loads pandas df row by row into database"""
+
     last_updated = check_last_update(connstr, scraped_table, repo)
     df = filter_pandas_to_insert(df, last_updated)
     # creating column list for insertion
