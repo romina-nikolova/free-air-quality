@@ -1,14 +1,14 @@
 import bitdotio
 from datetime import datetime
-from config import configparser
+import configparser
 import get_sensor_data
+import os
 
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read(os.path.join(os.path.dirname(__file__), 'config.ini'))
 
 now = datetime.now().replace(second=0, microsecond=0, minute=0)
 today_str = now.strftime("%Y-%m-%d %H:%M:%S")
-print(today_str)
 
 b = bitdotio.bitdotio(config['apikey'])
 
