@@ -25,7 +25,6 @@ def load_pandas_to_bitdotio_flawed(df: pd.DataFrame, connstr: str, scraped_table
     """Error: table already exists. Possible explanation:
         This function does not work as it looks into the default schema.
         if_exists=replace does not work either"""
-
     last_updated = check_last_update(connstr, scraped_table, repo)
     df = filter_pandas_to_insert(df, last_updated)
     engine = create_engine(connstr, isolation_level="AUTOCOMMIT")
