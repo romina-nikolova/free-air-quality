@@ -1,17 +1,18 @@
 import os
 import process_scraped_data
 import load_scraped_data
+from time import sleep
 
-connstr = os.environ('connstr')
-scraped_table = os.environ('scraped_table')
-repo = os.environ('repo')
+connstr = os.environ['connstr']
+scraped_table = os.environ['scraped_table']
+repo = os.environ['repo']
 
 
 if __name__ == "__main__":
     print('Starting scraping...')
-    os.system("scrapy runspider get_scraped_data.py -o file.csv -t csv")
+    os.system("scrapy runspider scraped_air_quality/get_scraped_data.py -o file.csv -t csv")
     print('Scraping completed.')
-
+    sleep(4)
     print('Processing scraped data...')
     df = process_scraped_data.process_scraped_data('file')
     print('Processing completed')
