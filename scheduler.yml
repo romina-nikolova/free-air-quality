@@ -30,7 +30,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run scrapers
       env:
-        connstr: ${{ secrets.connstr }}
-        repo: ${{ secrets.repo }}
-        scraped_table: ${{ secrets.scraped_table }}
+        connstr: ${{ secrets.CONNSTR }}
+        repo: ${{ secrets.REPO }}
+        scraped_table: ${{ secrets.SCRAPED_TABLE }}
       run: python scraped_air_quality/run.py
