@@ -3,9 +3,9 @@ import process_scraped_data
 import load_scraped_data
 from time import sleep
 
-connstr = os.environ['connstr']
-scraped_table = os.environ['scraped_table']
-repo = os.environ['repo']
+connstr = os.environ['CONNSTR']
+scraped_table = os.environ['SCRAPED_TABLE']
+repo = os.environ['REPO']
 
 
 if __name__ == "__main__":
