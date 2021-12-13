@@ -3,6 +3,13 @@ from datetime import datetime
 import configparser
 import get_sensor_data
 import os
+import logging
+
+logging.basicConfig(filename='sensor_data.log',
+                    level=logging.INFO,
+                    format='%(asctime)s:Line no-%(lineno)d:%(message)s')
+
+logger = logging.getLogger(__name__)
 
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.dirname(__file__), 'config.ini'))
@@ -15,7 +22,7 @@ b = bitdotio.bitdotio(config['apikey'])
 with b.get_connection() as conn:
     cursor = conn.cursor()
 
-    sensor_data = get_sensor_data.get_sps30_data()
+    sensor_data = get_sensor_data.get_sps30_data(logger)
     cursor.execute(f"""INSERT INTO "{config['repo']}"."{config['sensor_data']}" (
                   date_time,
                   pm1,
@@ -30,4 +37,4 @@ with b.get_connection() as conn:
                   {sensor_data[3]},
                   {sensor_data[4]}
                   )""")
-    print(f"""successfully inserted sensor data for {today_str}""")
+    logger.info(f"""successfully inserted sensor data for {today_str}""")
