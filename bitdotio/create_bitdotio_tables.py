@@ -3,7 +3,6 @@ import os
 
 connstr = os.environ['CONNSTR']
 repo = os.environ['REPO']
-location_table = os.environ['location_table']
 
 engine = create_engine(connstr, isolation_level="AUTOCOMMIT")
 
