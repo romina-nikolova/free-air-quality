@@ -21,15 +21,6 @@ def get_sps30_data(logger):
     else:
         logger.info("DEVICE SERIAL: " + str(sps.read_device_serial()))
 
-    # sps.set_auto_cleaning_interval(0) # default 604800, set 0 to disable auto-cleaning
-
-    # sps.device_reset() # device has to be powered-down or reset to check new auto-cleaning interval
-
-    # if sps.read_auto_cleaning_interval() == sps.AUTO_CLN_INTERVAL_ERROR: # or returns the interval in seconds
-    #    raise Exception("AUTO-CLEANING INTERVAL CRC ERROR!")
-    # else:
-    #    print("AUTO-CLEANING INTERVAL: " + str(sps.read_auto_cleaning_interval()))
-
     sps.start_measurement()
 
     while not sps.read_data_ready_flag():
@@ -42,22 +33,33 @@ def get_sps30_data(logger):
         logger.exception("MEASURED VALUES CRC ERROR!")
         raise Exception("MEASURED VALUES CRC ERROR!")
     else:
-        logger.info("PM1.0 Value in µg/m3: " + str(sps.dict_values['pm1p0']))
-        logger.info("PM2.5 Value in µg/m3: " + str(sps.dict_values['pm2p5']))
-        logger.info("PM4.0 Value in µg/m3: " + str(sps.dict_values['pm4p0']))
-        logger.info("PM10.0 Value in µg/m3: " + str(sps.dict_values['pm10p0']))
-        #        print ("NC0.5 Value in 1/cm3: " + str(sps.dict_values['nc0p5']))    # NC: Number of Concentration
-        #        print ("NC1.0 Value in 1/cm3: " + str(sps.dict_values['nc1p0']))
-        #        print ("NC2.5 Value in 1/cm3: " + str(sps.dict_values['nc2p5']))
-        #        print ("NC4.0 Value in 1/cm3: " + str(sps.dict_values['nc4p0']))
-        #        print ("NC10.0 Value in 1/cm3: " + str(sps.dict_values['nc10p0']))
-        logger.info("Typical Particle Size in µm: " + str(sps.dict_values['typical']))
+        logger.info("PM1.0 Value in µg/m3: " +
+                    str(sps.dict_values['pm1p0']))
+        logger.info("PM2.5 Value in µg/m3: " +
+                    str(sps.dict_values['pm2p5']))
+        logger.info("PM4.0 Value in µg/m3: " +
+                    str(sps.dict_values['pm4p0']))
+        logger.info("PM10.0 Value in µg/m3: " +
+                    str(sps.dict_values['pm10p0']))
+        #      print ("NC0.5 Value in 1/cm3: " +
+        #      str(sps.dict_values['nc0p5']))
+        #      print ("NC1.0 Value in 1/cm3: " +
+        #      str(sps.dict_values['nc1p0']))
+        #      print ("NC2.5 Value in 1/cm3: " +
+        #      str(sps.dict_values['nc2p5']))
+        #      print ("NC4.0 Value in 1/cm3: " +
+        #      str(sps.dict_values['nc4p0']))
+        #      print ("NC10.0 Value in 1/cm3: " +
+        #      str(sps.dict_values['nc10p0']))
+        logger.info("Typical Particle Size in µm: " +
+                    str(sps.dict_values['typical']))
 
     sleep(5)
 
     sps.stop_measurement()
 
-    sps.start_fan_cleaning()  # enables fan-cleaning manually for 10 seconds (referred by datasheet)
+    # enables fan-cleaning manually for 10 seconds (referred by datasheet)
+    sps.start_fan_cleaning()
 
     return [round(sps.dict_values['pm1p0'], 3),
             round(sps.dict_values['pm2p5'], 3),

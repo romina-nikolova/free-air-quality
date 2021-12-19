@@ -4,14 +4,17 @@ from roman import fromRoman
 
 
 def convert_to_date(day: str, sep='.') -> datetime.date:
-    """ Converts a string from format with roman month to datetime. Sample input: 21.XI.21 """
+    """ Converts a string from format with roman month to datetime.
+    Sample input: 21.XI.21 """
     split_date = day.split(sep)
     split_date[1] = str(fromRoman(split_date[1]))
-    return datetime.datetime.strptime(sep.join(split_date), f'%d{sep}%m{sep}%y')
+    return datetime.datetime.strptime(sep.join(split_date),
+                                      f'%d{sep}%m{sep}%y')
 
 
 def process_scraped_data(filename: str):
-    """ Rename columns, measure types, date format, fill NAs"""
+    """ Rename columns, measure types, date format,
+    fill NAs """
 
     df = pd.read_csv(f'''{filename}.csv''')
 
@@ -30,12 +33,11 @@ def process_scraped_data(filename: str):
                                       'Мах.СЧК': 'hourly_max'}
 
     df = df.rename(columns=column_name_map)
-    df['measure_type'] = df['measure_type'].replace(observation_frequency_name_map)
+    df['measure_type'] = df['measure_type']\
+        .replace(observation_frequency_name_map)
     df = df[df['measure_type'].isin(['daily_mean', 'hourly_max'])]
     df = df.fillna(method='ffill')
-    df['measure_date'] = df['measure_date'].apply(lambda x: convert_to_date(str(x)))
+    df['measure_date'] = df['measure_date']\
+        .apply(lambda x: convert_to_date(str(x)))
 
     return df
-
-
-
