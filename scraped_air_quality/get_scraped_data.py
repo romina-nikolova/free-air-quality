@@ -1,6 +1,4 @@
 import scrapy
-from scrapy.cmdline import execute
-import os
 from table import Table
 
 

@@ -10,7 +10,12 @@ repo = os.getenv('REPO')
 
 if __name__ == "__main__":
     print('Starting scraping...')
-    os.system("scrapy runspider scraped_air_quality/get_scraped_data.py -o file.csv -t csv")
+    os.system(
+        """scrapy runspider 
+        scraped_air_quality/get_scraped_data.py 
+        -o file.csv
+        -t csv"""
+             )
     print('Scraping completed.')
     sleep(4)
     print('Processing scraped data...')
