@@ -59,8 +59,8 @@ def load_pandas_to_bitdotio(
         for i, row in df.iterrows():
             sql = f"""INSERT INTO "{repo}"."{scraped_table}"
                         (measure_date, measure_type, SO2, NO2,
-                        NO1,CO2,O3,pm10,benzene,pm2_5) 
-                      VALUES('{row.measure_date}', 
+                        NO1,CO2,O3,pm10,benzene,pm2_5)
+                      VALUES('{row.measure_date}',
                              '{row.measure_type}',
                               {row.SO2}, {row.NO2},
                               {row.NO1},{row.CO2},
