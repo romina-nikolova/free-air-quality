@@ -13,7 +13,7 @@ if __name__ == "__main__":
     print('Starting scraping...')
     os.system(
         f"scrapy runspider \
-        scraped_air_quality/get_scraped_data.py \
+        2_scraped_air_quality/get_scraped_data.py \
         -a url={url} \
         -o file.csv \
         -t csv"
