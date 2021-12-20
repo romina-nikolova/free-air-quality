@@ -1,9 +1,9 @@
-name: flake8 Lint
+name: Linting with flake8 and sqlfluff
 
 on: [pull_request]
 
 jobs:
-  flake8-lint:
+  lint-flake8-sqlfluff:
     runs-on: ubuntu-latest
     name: Lint
     steps:
@@ -15,3 +15,7 @@ jobs:
           python-version: "3.8"
       - name: flake8 Lint
         uses: py-actions/flake8@v2
+      - name: Install SQLFluff
+        run: "pip install sqlfluff==0.3.6"
+      - name: Lint SQL files
+        run: "sqlfluff lint ./bitdotio"
