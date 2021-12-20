@@ -16,6 +16,6 @@ jobs:
       - name: flake8 Lint
         uses: py-actions/flake8@v2
       - name: Install SQLFluff
-        run: "pip install sqlfluff==0.3.6"
+        run: "pip install sqlfluff==0.6.6"
       - name: Lint SQL files
         run: "sqlfluff lint --dialect postgres ./bitdotio"
