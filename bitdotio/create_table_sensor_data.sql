@@ -9,3 +9,4 @@ typical_size DOUBLE PRECISION,
 PRIMARY KEY (measure_date,measure_type)
 );
 
+
