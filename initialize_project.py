@@ -14,9 +14,9 @@ if __name__ == "__main__":
     logger.info(f""" Template environment variables generated. """)
 
     logger.info(f""" Creating bit.io tables... """)
-    os.system("python bitdotio/create_bitdotio_tables.py")
+    os.system("python 1_bitdotio/create_bitdotio_tables.py")
     logger.info(f""" bit.io tables created. """)
 
     logger.info(f""" Creating bit.io tables... """)
-    os.system("python bitdotio/create_bitdotio_tables.py")
+    os.system("python 1_bitdotio/create_bitdotio_tables.py")
     logger.info(f""" bit.io tables created. """)
