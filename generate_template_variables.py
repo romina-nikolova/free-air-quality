@@ -18,7 +18,8 @@ os.environ['THRESHOLDS_TABLE_NAME'] = '...'
 
 # Set additional project config variables
 os.environ['SCRAPER_ONLY_FLAG'] = 'False'
-os.environ['SCRAPER_URL'] = 'https://www.riosv-ruse.org/danni-punktove/stantzii'
+os.environ['SCRAPER_URL'] = \
+    'https://www.riosv-ruse.org/danni-punktove/stantzii'
 os.environ['PROCESS_SCRAPED_DATA_FLAG'] = 'True'
 
 

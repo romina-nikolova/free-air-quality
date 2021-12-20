@@ -9,14 +9,10 @@ if __name__ == "__main__":
 
     logger = logging.getLogger(__name__)
 
-    logger.info(f""" Generating template environment variables... """)
+    logger.info(""" Generating template environment variables... """)
     os.system("python generate_template_variables.py")
-    logger.info(f""" Template environment variables generated. """)
+    logger.info(""" Template environment variables generated. """)
 
-    logger.info(f""" Creating bit.io tables... """)
+    logger.info(""" Creating bit.io tables... """)
     os.system("python 1_bitdotio/create_bitdotio_tables.py")
-    logger.info(f""" bit.io tables created. """)
-
-    logger.info(f""" Creating bit.io tables... """)
-    os.system("python 1_bitdotio/create_bitdotio_tables.py")
-    logger.info(f""" bit.io tables created. """)
+    logger.info(""" bit.io tables created. """)
