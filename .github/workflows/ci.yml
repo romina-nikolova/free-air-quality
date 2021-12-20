@@ -18,4 +18,4 @@ jobs:
       - name: Install SQLFluff
         run: "pip install sqlfluff==0.9.0"
       - name: Lint SQL files
-        run: "sqlfluff lint --dialect postgres ./bitdotio"
+        run: "sqlfluff lint --dialect postgres ./1_bitdotio"

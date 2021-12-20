@@ -5,7 +5,9 @@ from table import Table
 class TableSpider(scrapy.Spider):
     name = "table-scraper"
 
-    start_urls = ['https://www.riosv-ruse.org/danni-punktove/stantzii']
+    def __init__(self, url='', **kwargs):
+        self.start_urls = [f'{url}']
+        super().__init__(**kwargs)
 
     def parse(self, response):
         table = Table(response.xpath('(//table)[1]'))

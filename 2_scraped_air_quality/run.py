@@ -4,20 +4,24 @@ import load_scraped_data
 from time import sleep
 
 connstr = os.getenv('CONNSTR')
-scraped_table = os.getenv('SCRAPED_TABLE')
+scraped_table = os.getenv('SCRAPED_TABLE_NAME')
 repo = os.getenv('REPO')
+url = os.getenv('SCRAPER_URL')
 
 
 if __name__ == "__main__":
     print('Starting scraping...')
     os.system(
-        "scrapy runspider \
+        f"scrapy runspider \
         scraped_air_quality/get_scraped_data.py \
+        -a url={url} \
         -o file.csv \
         -t csv"
              )
     print('Scraping completed.')
+
     sleep(4)
+
     print('Processing scraped data...')
     df = process_scraped_data.process_scraped_data('file')
     print('Processing completed')
