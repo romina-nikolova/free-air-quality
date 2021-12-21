@@ -32,7 +32,7 @@ jobs:
     - name: Run scrapers
       env:
         CONNSTR: ${{ secrets.CONNSTR }}
-        REPO: ${{ secrets.REPO }}
-        SCRAPED_TABLE: ${{ secrets.SCRAPED_TABLE }}
+        REPO: ${{ secrets.REPO_NAME }}
+        SCRAPED_TABLE: ${{ secrets.SCRAPED_TABLE_NAME }}
         SCRAPER_URL: ${{ secrets.SCRAPER_URL }}
       run: python 2_scraped_air_quality/run.py
