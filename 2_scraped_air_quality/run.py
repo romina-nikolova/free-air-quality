@@ -5,7 +5,7 @@ from time import sleep
 
 connstr = os.getenv('CONNSTR')
 scraped_table = os.getenv('SCRAPED_TABLE_NAME')
-repo = os.getenv('REPO')
+repo = os.getenv('REPO_NAME')
 url = os.getenv('SCRAPER_URL')
 
 
