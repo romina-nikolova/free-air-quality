@@ -27,7 +27,7 @@ There are two data sources in this setup:
    - **scraped data** from the official municipality website as an html table. https://www.riosv-ruse.org/danni-punktove/stantzii
 
 <p align="center">
-  <img src="docs/scraped_data.PNG" width="400" height="300"/> 
+  <img src="docs/scraped_data.PNG" width="400" height="250"/> 
 </p>
 
 #### Recommended guidelines for replicating the setup
@@ -45,7 +45,7 @@ Prerequisites:
 2. Copy your bit.io credentials (green Connect button):
 
 <p align="center">
-  <img src="docs/connect_button.PNG" width="200" height="150"/> 
+  <img src="docs/connect_button.PNG"/> 
 </p>
 
 
@@ -53,7 +53,7 @@ Prerequisites:
 4. Copy the entire repo name to the REPO_NAME environment variable in generate_template_variables.py (format: "user/repo")
 
 <p align="center">
-  <img src="docs/repo_name.png" width="200" height="150"/> 
+  <img src="docs/repo_name.png"/> 
 </p>
 
 5. Provide a table name of your choice for the SCRAPED_TABLE_NAME environment and ignore the remaining table names. Set the SCRAPER_ONLY_FLAG to 'True'!
