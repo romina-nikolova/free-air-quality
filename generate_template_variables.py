@@ -3,11 +3,6 @@ import os
 # Set bit.io connection variables
 os.environ['APIKEY'] = '<<apikey>>'
 os.environ['CONNSTR'] = '<<connstr>>'
-os.environ['HOSTNAME'] = '<<hostname>>'
-os.environ['PORT'] = '<<port>>'
-os.environ['DATABASE'] = '<<database>>'
-os.environ['USER'] = '<<user>>'
-os.environ['PASSWORD'] = '<<password>>'
 
 # Set bit.io table variables
 os.environ['REPO_NAME'] = '...'
