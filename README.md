@@ -63,14 +63,17 @@ Running 2_scraped_air_quality/run.py locally is a good idea at this point. It wi
 Once this step is successful we will set up the scheduled GitHub Actions process as follows
 
 ### Stage 3: Set scheduled GitHub Actions run
-1. On your GitHub repository, go to Settings/Environments/Add Secrets
+1. On your GitHub repository, go to Settings/Environments/Add New Environment and give it a name that should correspond to the environment field in .github/workflows/main.yml
 2. Copy the following secrets from generate_template_variables.py:
     - CONNSTR
     - REPO_NAME
     - SCRAPED_TABLE_NAME
     - SCRAPER_URL
     - PROCESS_SCRAPED_DATA_FLAG
-   and add them for GitHub Actions to access. Your environment should look like this.
+   and add them for GitHub Actions to access. Your environment should look like this:
+
+<img src="docs/environment.PNG" width="200">
+
 3. Adjust the cron expression in .github/workflows/main.yml so that you can schedule the execution of the scraper at your preferred time. It is currently set to 9am UTC every day.
 4. Push the changes and done.
 
