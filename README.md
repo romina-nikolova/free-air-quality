@@ -2,7 +2,9 @@
 
 My hometown Ruse, Bulgaria has been having issues with its air quality since the 1980s. Despite protests and calls for action by the citizens there isn't a reliable and transparent network of sensors monitoring the area. The purpose of this project is to suggest a data architecture that can track different sources of sensor data, visualize them and enable email alerting on high levels of pollution.
 
-![alt text](docs/ruse-image.jpg "Ruse and the Danube river")
+<p align="center">
+  <img src="docs/ruse-image.jpg" />
+</p>
  
 
 ##### Limitations
@@ -10,16 +12,23 @@ The proposed solution will remain **cost free** as long as the stored data remai
 
 ##### Setup summary
 
-![infrastructure](docs/final_infra.png "Project infrastructure")
+<p align="center">
+  <img src="docs/final_infra.png" />
+</p>
+
 
 There are two data sources in this setup:
    - **sensor data** from Sensirion SPS30 Particulate Matter sensor connected to a Raspberry Pi 4.
 
-<img src="docs/sps30.jpg" width="200" height="400">
+<p align="center">
+  <img src="docs/sps30.jpg" />
+</p>
 
    - **scraped data** from the official municipality website as an html table. https://www.riosv-ruse.org/danni-punktove/stantzii
-   
-<img src="docs/scraped_data.PNG" width="400" height="300"> 
+
+<p align="center">
+  <img src=scraped_data.PNG" width="400" height="300" /> 
+</p>
 
 #### Recommended guidelines for replicating the setup
 
