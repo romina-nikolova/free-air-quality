@@ -60,8 +60,6 @@ You are now done with setting the environment variables and can **initialize you
 Next, you can add any processing logic to process_scraped_data.py process_scraped_data function. If process flag is set to False, skip this step.
 Running 2_scraped_air_quality/run.py locally is a good idea at this point. It will scrape, process(if applicable) and load the html table to bit.io.
 
-Desired output:
-
 Once this step is successful we will set up the scheduled GitHub Actions process as follows
 
 ### Stage 3: Set scheduled GitHub Actions run

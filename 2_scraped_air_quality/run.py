@@ -12,7 +12,7 @@ process_flag = os.getenv('PROCESS_SCRAPED_DATA_FLAG')
 
 
 if __name__ == "__main__":
-    print('Starting scraping...')
+    print('EXTRACT: Starting scraping...')
     os.system(
         f"scrapy runspider \
         2_scraped_air_quality/get_scraped_data.py \
@@ -20,19 +20,19 @@ if __name__ == "__main__":
         -o file.csv \
         -t csv"
              )
-    print('Scraping completed.')
+    print('EXTRACT: Scraping completed.')
 
     sleep(4)
     if process_flag.lower() in ('true', '1', 't'):
-        print('Processing scraped data...')
+        print('TRANSFORM: Processing scraped data...')
         df = process_scraped_data.process_scraped_data('file')
-        print('Processing completed')
+        print('TRANSFORM: Processing completed')
     else:
         df = pd.read_csv("file.csv")
 
-    print('Starting load to bitdotio...')
+    print('LOAD: Starting load to bitdotio...')
     load_scraped_data.load_pandas_to_bitdotio(df, connstr, scraped_table, repo)
-    print('Loading to bitdotio completed.')
+    print('LOAD: Loading to bitdotio completed.')
 
     print('Deleting file.csv...')
     os.system("rm file.csv")
