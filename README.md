@@ -27,7 +27,7 @@ There are two data sources in this setup:
    - **scraped data** from the official municipality website as an html table. https://www.riosv-ruse.org/danni-punktove/stantzii
 
 <p align="center">
-  <img src="docs/scraped_data.PNG" width="400" height="250"/> 
+  <img src="docs/scraped_data.PNG" width="500" height="350"/> 
 </p>
 
 #### Recommended guidelines for replicating the setup
@@ -86,7 +86,7 @@ Once this step is successful we will set up the scheduled GitHub Actions process
    and add them for GitHub Actions to access. Your environment should look like this:
 
 <p align="center">
-  <img src="docs/environment.PNG" width="200" height="150"/> 
+  <img src="docs/environment.PNG"/> 
 </p>                                                       
 
 3. Adjust the cron expression in .github/workflows/main.yml so that you can schedule the execution of the scraper at your preferred time. It is currently set to 9am UTC every day.
