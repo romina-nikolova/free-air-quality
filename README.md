@@ -15,11 +15,11 @@ The proposed solution will remain **cost free** as long as the stored data remai
 There are two data sources in this setup:
    - **sensor data** from Sensirion SPS30 Particulate Matter sensor connected to a Raspberry Pi 4.
 
-<img src="docs/sps30.jpg" width="200" height="200">
+<img src="docs/sps30.jpg" width="200" height="400">
 
    - **scraped data** from the official municipality website as an html table. https://www.riosv-ruse.org/danni-punktove/stantzii
    
-<img src="docs/scraped_data.PNG" width="200"> 
+<img src="docs/scraped_data.PNG" width="400" height="300"> 
 
 #### Recommended guidelines for replicating the setup
 
