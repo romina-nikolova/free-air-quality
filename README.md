@@ -21,13 +21,13 @@ There are two data sources in this setup:
    - **sensor data** from Sensirion SPS30 Particulate Matter sensor connected to a Raspberry Pi 4.
 
 <p align="center">
-  <img src="docs/sps30.jpg" />
+  <img src="docs/sps30.jpg" width="200" height="250"/>
 </p>
 
    - **scraped data** from the official municipality website as an html table. https://www.riosv-ruse.org/danni-punktove/stantzii
 
 <p align="center">
-  <img src=scraped_data.PNG" width="400" height="300" /> 
+  <img src=scraped_data.PNG" width="400" height="300" > 
 </p>
 
 #### Recommended guidelines for replicating the setup
