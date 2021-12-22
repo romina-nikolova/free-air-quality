@@ -35,4 +35,5 @@ jobs:
         REPO_NAME: ${{ secrets.REPO_NAME }}
         SCRAPED_TABLE_NAME: ${{ secrets.SCRAPED_TABLE_NAME }}
         SCRAPER_URL: ${{ secrets.SCRAPER_URL }}
+        PROCESS_SCRAPED_DATA_FLAG: ${{ secrets.PROCESS_SCRAPED_DATA_FLAG }}
       run: python 2_scraped_air_quality/run.py

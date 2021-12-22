@@ -2,11 +2,13 @@ import os
 import process_scraped_data
 import load_scraped_data
 from time import sleep
+import pandas as pd
 
 connstr = os.getenv('CONNSTR')
 scraped_table = os.getenv('SCRAPED_TABLE_NAME')
 repo = os.getenv('REPO_NAME')
 url = os.getenv('SCRAPER_URL')
+process_flag = os.getenv('PROCESS_SCRAPED_DATA_FLAG')
 
 
 if __name__ == "__main__":
@@ -21,10 +23,12 @@ if __name__ == "__main__":
     print('Scraping completed.')
 
     sleep(4)
-
-    print('Processing scraped data...')
-    df = process_scraped_data.process_scraped_data('file')
-    print('Processing completed')
+    if process_flag.lower() in ('true', '1', 't'):
+        print('Processing scraped data...')
+        df = process_scraped_data.process_scraped_data('file')
+        print('Processing completed')
+    else:
+        df = pd.read_csv("file.csv")
 
     print('Starting load to bitdotio...')
     load_scraped_data.load_pandas_to_bitdotio(df, connstr, scraped_table, repo)
