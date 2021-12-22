@@ -17,7 +17,9 @@ There are two data sources in this setup:
 
 <img src="docs/sps30.jpg" width="200">
 
-   - **scraped data** from the official municipality website as an html table. 
+   - **scraped data** from the official municipality website as an html table. https://www.riosv-ruse.org/danni-punktove/stantzii
+   
+<img src="docs/scraped_data.PNG" width="200"> 
 
 #### Recommended guidelines for replicating the setup
 
@@ -33,12 +35,13 @@ Prerequisites:
 1. Fork this repository
 2. Copy your bit.io credentials (green Connect button):
 
-![infrastructure](docs/connect_button.PNG "Click on Connect")
+<img src="docs/connect_button.PNG" width="200">
+
 
 3. Add your bit.io credentials in generate_template_variables.py
 4. Copy the entire repo name to the REPO_NAME environment variable in generate_template_variables.py (format: "user/repo")
 
-![infrastructure](docs/repo_name.png "Look at top left for repo name")
+<img src="docs/repo_name.png" width="200">
 
 5. Provide a table name of your choice for the SCRAPED_TABLE_NAME environment and ignore the remaining table names. Set the SCRAPER_ONLY_FLAG to 'True'!
 6. If you intend to ingest the html table directly without any processing, set the PROCESS_SCRAPED_DATA_FLAG to 'False'
