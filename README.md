@@ -27,7 +27,7 @@ There are two data sources in this setup:
    - **scraped data** from the official municipality website as an html table. https://www.riosv-ruse.org/danni-punktove/stantzii
 
 <p align="center">
-  <img src=scraped_data.PNG" width="400" height="300" > 
+  <img src=docs/scraped_data.PNG" width="400" height="300"/> 
 </p>
 
 #### Recommended guidelines for replicating the setup
@@ -44,13 +44,17 @@ Prerequisites:
 1. Fork this repository
 2. Copy your bit.io credentials (green Connect button):
 
-<img src="docs/connect_button.PNG" width="200">
+<p align="center">
+  <img src=docs/connect_button.PNG" width="200" height="150"/> 
+</p>
 
 
 3. Add your bit.io credentials in generate_template_variables.py
 4. Copy the entire repo name to the REPO_NAME environment variable in generate_template_variables.py (format: "user/repo")
 
-<img src="docs/repo_name.png" width="200">
+<p align="center">
+  <img src=docs/repo_name.png" width="200" height="150"/> 
+</p>
 
 5. Provide a table name of your choice for the SCRAPED_TABLE_NAME environment and ignore the remaining table names. Set the SCRAPER_ONLY_FLAG to 'True'!
 6. If you intend to ingest the html table directly without any processing, set the PROCESS_SCRAPED_DATA_FLAG to 'False'
@@ -81,7 +85,9 @@ Once this step is successful we will set up the scheduled GitHub Actions process
     - PROCESS_SCRAPED_DATA_FLAG
    and add them for GitHub Actions to access. Your environment should look like this:
 
-<img src="docs/environment.PNG" width="200">
+<p align="center">
+  <img src=docs/environment.PNG" width="200" height="150"/> 
+</p>                                                       
 
 3. Adjust the cron expression in .github/workflows/main.yml so that you can schedule the execution of the scraper at your preferred time. It is currently set to 9am UTC every day.
 4. Push the changes and done.
