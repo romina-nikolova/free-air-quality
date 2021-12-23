@@ -48,7 +48,7 @@ Prerequisites:
 </p>
 
 
-2. Create a new file called generate_template_variablaes_example.py
+2. Create a new file called generate_template_variables.py
 3. Use generate_template_variables_example.py as a template for generate_template_variables.py. Add your bit.io credentials in generate_template_variables.py
 4. Copy the entire repo name to the REPO_NAME environment variable in generate_template_variables.py (format: "user/repo")
 
