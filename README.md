@@ -41,15 +41,15 @@ Prerequisites:
    - (optional) dedicated email account for both the Grafana and bit.io, which will also serve as a guest account for Grafana and Grafana alarms recipient. That allows for separation of concerns from your personal email. 
 
 ### Stage 1: Add your template variables
-1. Fork this repository
-2. Copy your bit.io credentials (green Connect button):
+1. Copy your bit.io credentials (green Connect button):
 
 <p align="center">
   <img src="docs/connect_button.PNG"/> 
 </p>
 
 
-3. Add your bit.io credentials in generate_template_variables.py
+2. Create a new file called generate_template_variablaes_example.py
+3. Use generate_template_variables_example.py as a template for generate_template_variables.py. Add your bit.io credentials in generate_template_variables.py
 4. Copy the entire repo name to the REPO_NAME environment variable in generate_template_variables.py (format: "user/repo")
 
 <p align="center">
