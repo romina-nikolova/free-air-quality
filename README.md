@@ -30,7 +30,7 @@ There are two data sources in this setup:
   <img src="docs/scraped_data.PNG" width="500" height="350"/> 
 </p>
 
-#### Recommended guidelines for replicating the setup
+# Recommended guidelines for replicating the setup
 
 Aim: With this setup you can schedule a scraper of any html table online, incrementally load the contents to a DB instance and visualize them in a Grafana dashboard.
 Utilizing the generous free tiers of bit.io and Grafana Cloud, this can all be done without any financial costs.
