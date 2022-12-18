@@ -6,6 +6,6 @@ sps30==0.1.10
 SQLAlchemy==1.4.27
 psycopg-binary==3.1.6
 roman==3.3
-Scrapy==2.5.1
+Scrapy==2.7.1
 
 
