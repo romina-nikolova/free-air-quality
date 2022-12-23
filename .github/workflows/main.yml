@@ -9,7 +9,7 @@ on:
     - cron: '0 9 * * *'
 
 jobs:
-  scheduled:
+  get-air-quality-from-riosv:
     runs-on: ubuntu-latest
     environment: air-quality-scraper
     steps:
